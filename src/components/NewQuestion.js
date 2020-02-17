@@ -5,24 +5,25 @@ import {handleAddQuestion} from '../actions/questions';
 
 class NewQuestion extends React.Component {
   state = {
-    optionOneText: '',
-    optionTwoText: '',
+    optionOne: '',
+    optionTwo: '',
     toHome: false
   };
 
   handleChange = e => {
-    const text = e.target.value;
+    const value = e.target.value;
+    const name = e.target.name;
     this.setState({
-      text
+      [name]: value
     });
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    const { optionOneText, optionTwoText } = this.state;
+    const { optionOne, optionTwo } = this.state;
 
     const { dispatch } = this.props;
-    dispatch(handleAddQuestion(optionOneText, optionTwoText));
+    dispatch(handleAddQuestion(optionOne, optionTwo));
 
     this.setState({
       text: '',
@@ -31,25 +32,33 @@ class NewQuestion extends React.Component {
   };
 
   render() {
-    const { optionOneText, optionTwoText, toHome } = this.state;
+    const { optionOne, optionTwo, toHome } = this.state;
 
     if (toHome === true) {
       return <Redirect to='/' />
     }
 
     return (
-      <div>
-        <h3 className="center">New Tweet</h3>
-        <form className="new-tweet" onSubmit={this.handleSubmit}>
+      <div className='page-content'>
+        <h4 className='center'>New question</h4>
+        <form className="new-question" onSubmit={this.handleSubmit}>
           <input
-            className="textarea"
             maxLength={100}
+            name='optionOne'
             onChange={this.handleChange}
+            autoComplete="off"
             placeholder="Option one"
-            value={optionOneText}
+            value={optionOne}
           />
-
-          <button className="btn" type='submit' disabled={!optionOneText || !optionTwoText}>Submit</button>
+          <input
+            maxLength={100}
+            name='optionTwo'
+            onChange={this.handleChange}
+            autoComplete="off"
+            placeholder="Option two"
+            value={optionTwo}
+          />
+          <button className="btn" type='submit' disabled={!optionOne || !optionTwo}>Submit</button>
         </form>
       </div>
     );
