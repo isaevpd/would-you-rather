@@ -1,5 +1,6 @@
 import {hideLoading, showLoading} from 'react-redux-loading';
-import {saveQuestion} from '../utils/api';
+import {saveQuestion, saveQuestionAnswer} from '../utils/api';
+import {handleInitialData} from './shared';
 
 export const ADD_QUESTION = 'ADD_QUESTION';
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
@@ -35,3 +36,21 @@ export const receiveQuestions = questions => {
     questions
   }
 };
+
+
+export const handleAddQuestionAnswer = (qid, answer) => (dispatch, getState) => {
+  const { authedUser } = getState();
+  dispatch(showLoading());
+
+  saveQuestionAnswer({
+    authedUser,
+    qid,
+    answer
+  })
+    .then(() => {
+      dispatch(handleInitialData());
+    })
+    .then(() => dispatch(hideLoading()))
+};
+
+
