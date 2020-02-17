@@ -1,48 +1,155 @@
 body {
+  font-family: sans-serif;
+  color: #252525;
+}
+
+.page-content {
+  max-width: 50%;
+  margin: 20px auto;
+}
+
+.item {
+  border: solid 1px gray;
+  float: left;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.item-header {
+  background-color: lightgray;
+  padding: 10px;
+}
+
+.item-body {
+  width: 100%;
+  display: flex;
+}
+
+.avatar {
+  float: left;
+  width: 30%;
+  text-align: center;
+}
+
+.avatar-nav {
+  height: 30px;
+  border-radius: 15px;
+  margin: 0 10px;
+}
+
+.item-content {
+  float: left;
+  width: 60%;
+  border-left: solid 2px lightgray;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.avatar img {
+  height: 100px;
+  border-radius: 50px;
+  margin: 10px 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #252525;
+}
+
+#logout {
+}
+
+#greeting {
+  margin-left: auto;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.container {
+  border: solid 1px gray;
+  padding: 5px 5px;
+  float: left;
+  width: 100%;
+}
+
+.center {
+  text-align: center;
+}
+
+ul {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-decoration: none;
+  border-bottom: #252525 1px solid;
+  margin-bottom: 0;
 }
 
-
-.tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
+li {
+  list-style-type: none;
+  padding: 9px;
+  text-decoration: none;
 }
 
-.tab button {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-    font-size: 17px;
+input {
+  margin: 8px 0;
 }
 
-.tab button:hover {
-    background-color: #ddd;
+.btn:hover {
+  border-color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
 }
 
-/* Create an active/current tablink class */
-.tab button.active {
-    background-color: #ccc;
+.new-question {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: auto;
+  width: 50%;
 }
 
-/* Style the tab content */
-.tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
+.question-detail {
+  width: 40%;
+  margin: 20px auto;
+}
+
+.score {
+  border-left: solid 2px lightgray;
+  margin-top: 10px;
+}
+
+.score-content {
+  border-left: solid 2px lightgray;
+  border-right: solid 2px lightgray;
+  border-bottom: solid 2px lightgray;
+  margin: 20px;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  margin: 10px 10px;
+  font-size: 20px;
+  color: #000;
+  line-height: 50px;
+  text-align: center;
+  background: #fff;
+  border: solid 1px black;
+}
+
+.badge {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 30px 30px 0 0;
+  border-color: gold transparent transparent transparent;
+  position: absolute;
 }

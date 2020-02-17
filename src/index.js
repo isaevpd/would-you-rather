@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import App from './components/App';
 import reducer from './reducers';
 import middleware from './middleware';
 import * as serviceWorker from './serviceWorker';
-import 'bootstrap/dist/css/bootstrap.css';
+import 'react-tabs/style/react-tabs.css';
+import './index.css';
 
 const store = createStore(reducer, middleware);
 
