@@ -13,12 +13,7 @@ import NotFound from './NotFound';
 import PrivateRoute from './PrivateRoute';
 import QuestionDetail from './QuestionDetail';
 
-const App = ({ loading, dispatch }) => {
-  //
-  // componentDidMount() {
-  //   this.props.dispatch(handleInitialData());
-  // }
-
+const App = ({ isLoggedIn, loading, dispatch }) => {
   useEffect(() => {
     dispatch(handleInitialData());
   });
@@ -27,7 +22,7 @@ const App = ({ loading, dispatch }) => {
     <BrowserRouter>
       <>
         <div>
-          <Nav/>
+          {isLoggedIn && <Nav/>}
           <LoadingBar style={{ backgroundColor: 'green', marginTop: 0}}/>
           {loading === true ? null : (
             <Switch>
@@ -45,8 +40,9 @@ const App = ({ loading, dispatch }) => {
   );
 };
 
-const mapState = ({ users }) => {
-  return { loading: Object.keys(users)[0] === undefined}
+const mapState = ({ authedUser, users }) => {
+  const isLoggedIn = authedUser !== null;
+  return { isLoggedIn, loading: Object.keys(users)[0] === undefined}
 };
 
 export default connect(mapState)(App);
