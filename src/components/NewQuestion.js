@@ -40,7 +40,7 @@ class NewQuestion extends React.Component {
 
     return (
       <div className='page-content'>
-        <h4 className='center'>New question</h4>
+        <h3 className='center'>Wold you rather</h3>
         <form className="new-question" onSubmit={this.handleSubmit}>
           <input
             maxLength={100}
@@ -50,6 +50,7 @@ class NewQuestion extends React.Component {
             placeholder="Option one"
             value={optionOne}
           />
+          <strong className='center'>OR</strong>
           <input
             maxLength={100}
             name='optionTwo'
